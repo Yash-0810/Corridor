@@ -1,0 +1,137 @@
+{
+  "project_name": "Corridor Bar and Kitchen",
+  "theme": "dark",
+  "design_philosophy": {
+    "archetype": "The Performance Pro (Modified for Nightlife Luxury)",
+    "core_principles": [
+      "No Gradients (Pure Black & Gold only)",
+      "Cinematic Immersion (Full screen visuals)",
+      "Tactile Luxury (Grain, noise, sharp borders)",
+      "Motion as Texture (Slow drifts, smooth scrolls)"
+    ],
+    "vibe": "Exclusive, Nocturnal, High-Energy but Sophisticated"
+  },
+  "typography": {
+    "font_family": {
+      "heading": "Playfair Display, serif",
+      "body": "Manrope, sans-serif",
+      "accent": "Italiana, serif"
+    },
+    "scale": {
+      "h1": "text-6xl md:text-8xl font-black tracking-tighter uppercase",
+      "h2": "text-4xl md:text-6xl font-bold tracking-tight",
+      "h3": "text-2xl md:text-3xl font-semibold tracking-wide text-gold",
+      "body": "text-base md:text-lg text-zinc-300 leading-relaxed",
+      "caption": "text-sm uppercase tracking-[0.2em] text-gold/80"
+    },
+    "imports": [
+      "@import url('https://fonts.googleapis.com/css2?family=Italiana&family=Manrope:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&display=swap');"
+    ]
+  },
+  "colors": {
+    "palette": {
+      "background": "#000000",
+      "foreground": "#FFFFFF",
+      "gold": {
+        "DEFAULT": "#C5A572",
+        "light": "#D4B886",
+        "dark": "#8A7350",
+        "dim": "#4A3F2A"
+      },
+      "surface": {
+        "DEFAULT": "#0A0A0A",
+        "hover": "#111111"
+      },
+      "muted": "#A1A1AA",
+      "border": "#27272A"
+    },
+    "rules": [
+      "Backgrounds must be SOLID BLACK (#000000).",
+      "NO purple, teal, or blue gradients.",
+      "Use Gold (#C5A572) for CTAs, borders, and accents only.",
+      "Text should be White or Off-White (#E5E5E5) for readability."
+    ]
+  },
+  "spacing_and_layout": {
+    "container": "max-w-[1400px] mx-auto px-6 md:px-12",
+    "section_spacing": "py-24 md:py-32",
+    "grid_gap": "gap-8 md:gap-12",
+    "border_radius": {
+      "default": "rounded-none",
+      "button": "rounded-full"
+    }
+  },
+  "assets": {
+    "images": [
+      {
+        "name": "amb.jpg",
+        "usage": "Hero Background (Full Screen)",
+        "alt": "Corridor Bar Ambience"
+      },
+      {
+        "name": "men1.jpg - men8.jpg",
+        "usage": "Menu Grid Items",
+        "alt": "Food and Drink Menu Page"
+      },
+      {
+        "name": "gallery_set",
+        "files": ["apr.jpg", "ballent.jpg", "bl.jpg", "bn.jpg", "dj.jpg", "dri.jpg", "f1.jpg", "grp.jpg", "nod.jpg", "pic.jpg", "piz.jpg"],
+        "usage": "Moving Gallery / Marquee / Grid"
+      },
+      {
+        "name": "vid.mp4",
+        "usage": "Optional: Hero Background Video replacement or 'Vibe' section"
+      }
+    ],
+    "logo_url": "https://customer-assets.emergentagent.com/job_8330d4af-9364-43d2-bb53-2d06a2fe9acc/artifacts/q43s48j8_ss.png"
+  },
+  "components": {
+    "Hero": {
+      "structure": "Full-screen (h-screen) with amb.jpg as background. Overlay: bg-black/60. Content: Center aligned. Logo large.",
+      "animation": "Fade in logo. Parallax on background image."
+    },
+    "MovingGallery": {
+      "library": "react-fast-marquee or framer-motion",
+      "style": "Infinite horizontal scroll of images (height: 400px). Grayscale on default, Full color on hover.",
+      "speed": "Slow and smooth."
+    },
+    "MenuGrid": {
+      "style": "Masonry or strict Grid (3 cols).",
+      "interaction": "Click to open Lightbox/Modal for better readability."
+    },
+    "BookingCTA": {
+      "style": "Fixed bottom-right floating button OR Main Nav button.",
+      "color": "bg-gold text-black hover:bg-white hover:text-black transition-colors duration-300",
+      "label": "RESERVE TABLE",
+      "link": "https://www.zomato.com/kolkata/corridor-bar-kitchen-chowringhee/book"
+    }
+  },
+  "motion": {
+    "libraries": ["framer-motion", "lenis", "gsap"],
+    "preferences": {
+      "scroll": "Smooth, momentum-based (Lenis mandatory).",
+      "reveal": "Elements fade in + move up (y: 20 -> 0) on scroll.",
+      "hover": "Scale 1.02, bright border reveal."
+    }
+  },
+  "universal_guidelines": [
+    "Use 'lenis' for smooth scrolling. Standard scroll feels cheap.",
+    "Do not use gradients. Use solid colors and borders.",
+    "Ensure all text is legible against black backgrounds (min contrast 4.5:1).",
+    "Use 'Playfair Display' for all headings to establish luxury.",
+    "Use 'Manrope' for body text.",
+    "Gold (#C5A572) is the ONLY accent color.",
+    "Images must have 'object-cover' and proper aspect ratios.",
+    "Forms must use Shadcn components but styled with Gold borders.",
+    "Interactive elements must have data-testid attributes."
+  ],
+  "instructions_to_main_agent": [
+    "1. Setup Tailwind config to include the custom 'gold' color and 'Playfair Display' font.",
+    "2. Place provided images in '/public/assets/'.",
+    "3. Implement 'Lenis' smooth scroll in the root layout.",
+    "4. Create the 'MovingGallery' component using the gallery images.",
+    "5. Build the Menu page as a gallery of menu images.",
+    "6. Ensure the Booking link opens in a new tab.",
+    "7. STRICTLY follow the Black & Gold theme. No other colors."
+  ]
+}

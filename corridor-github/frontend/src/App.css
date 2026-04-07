@@ -1,0 +1,193 @@
+/* Corridor Bar and Kitchen - Main Styles */
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    transition: all 0.3s ease;
+}
+
+.navbar.scrolled {
+    background-color: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(10px);
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.7) 100%);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    text-align: center;
+}
+
+/* Moving Gallery */
+.gallery-marquee {
+    display: flex;
+    width: max-content;
+}
+
+.gallery-item {
+    position: relative;
+    overflow: hidden;
+    filter: grayscale(100%);
+    transition: all 0.5s ease;
+}
+
+.gallery-item:hover {
+    filter: grayscale(0%);
+    transform: scale(1.02);
+}
+
+.gallery-item img {
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.1);
+}
+
+/* Menu Grid */
+.menu-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.menu-item {
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    border: 1px solid #27272A;
+    transition: all 0.3s ease;
+}
+
+.menu-item:hover {
+    border-color: var(--gold);
+    box-shadow: 0 0 30px rgba(197, 165, 114, 0.2);
+}
+
+/* Section Titles */
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+.section-subtitle {
+    font-family: 'Italiana', serif;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+}
+
+/* Contact Form */
+.contact-input {
+    background-color: transparent;
+    border: 1px solid #27272A;
+    padding: 1rem;
+    color: white;
+    transition: border-color 0.3s ease;
+}
+
+.contact-input:focus {
+    outline: none;
+    border-color: var(--gold);
+}
+
+.contact-input::placeholder {
+    color: #71717A;
+}
+
+/* Floating CTA */
+.floating-cta {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 90;
+    animation: pulse-gold 2s ease-in-out infinite;
+}
+
+/* Image Lightbox */
+.lightbox-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-image {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .hero-content h1 {
+        font-size: 2.5rem;
+    }
+    
+    .floating-cta {
+        bottom: 1rem;
+        right: 1rem;
+    }
+}
+
+/* Smooth scroll reveal animation */
+.reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.8s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Stagger children animation */
+.stagger-children > * {
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.stagger-children.visible > *:nth-child(1) { animation: fade-in-up 0.6s ease forwards 0.1s; }
+.stagger-children.visible > *:nth-child(2) { animation: fade-in-up 0.6s ease forwards 0.2s; }
+.stagger-children.visible > *:nth-child(3) { animation: fade-in-up 0.6s ease forwards 0.3s; }
+.stagger-children.visible > *:nth-child(4) { animation: fade-in-up 0.6s ease forwards 0.4s; }
+.stagger-children.visible > *:nth-child(5) { animation: fade-in-up 0.6s ease forwards 0.5s; }
+
+@keyframes fade-in-up {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
